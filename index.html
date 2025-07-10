@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TA WingTsun – Probetraining</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #111;
+    }
+    header img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 600px;
+      margin: -50px auto 2rem;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #c90000;
+    }
+    p {
+      text-align: center;
+      font-size: 1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    input, select {
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 1rem;
+      font-size: 1rem;
+      background-color: #c90000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #a80000;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="headergrafik.png" alt="TA WingTsun Headergrafik" />
+  </header>
+  <main class="container">
+    <h1>Du bist da – Willkommen zum Probetraining!</h1>
+    <p>Schön, dass du heute bei uns in der <strong>TA WingTsun Selbstverteidigungsschule</strong> bist!<br>
+    Bitte fülle dieses kurze Formular aus, damit wir deinen Besuch bestätigen können.<br>
+    Im Anschluss erhältst du den Link zu unserem Instagram-Profil.</p>
+    <form onsubmit="event.preventDefault(); window.location.href='https://www.instagram.com/tawt_selbstverteidigung/';">
+      <input type="text" name="name" placeholder="Wie heißt du?" required />
+      <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required />
+      <input type="tel" name="tel" placeholder="Telefonnummer (optional)" />
+      <select name="gruppe" required>
+        <option value="">Welche Gruppe besuchst du heute?</option>
+        <option value="Kinder">Kindergruppe</option>
+        <option value="Jugend">Jugendgruppe</option>
+        <option value="Erwachsene">Erwachsenengruppe</option>
+      </select>
+      <select name="quelle" required>
+        <option value="">Wie hast du von uns erfahren?</option>
+        <option value="Instagram">Instagram</option>
+        <option value="TikTok">TikTok</option>
+        <option value="Freunde">Freunde/Bekannte</option>
+        <option value="Flyer">Flyer/Plakate</option>
+        <option value="Standort">Standort</option>
+        <option value="Sonstiges">Sonstiges</option>
+      </select>
+      <label><input type="checkbox" required /> Ich bin einverstanden, dass meine Daten zum Zweck der Kontaktaufnahme und Kursorganisation gespeichert werden.</label>
+      <button type="submit">Absenden & zu Instagram</button>
+    </form>
+  </main>
+  <footer>
+    © TA WingTsun – <a href="https://www.tawt-selbstverteidigung.de" target="_blank">www.tawt-selbstverteidigung.de</a>
+  </footer>
+</body>
+</html>
