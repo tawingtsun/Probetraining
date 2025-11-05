@@ -109,7 +109,7 @@
     <p>Schön, dass du heute bei uns in der <strong>TA WingTsun Selbstverteidigungsschule</strong> bist!<br>
     Bitte fülle dieses kurze Formular aus, damit wir deinen Besuch bestätigen können.<br>
     Im Anschluss erhältst du den Link zu unserem Instagram-Profil.</p>
-    <form action="https://formspree.io/f/xkgpdrwz" method="POST">
+  <form id="probetraining-form" action="https://formspree.io/f/xkgpdrwz" method="POST">
 
   <input type="hidden" name="_next" value="https://www.instagram.com/taet_selbstverteidigung/">
 
@@ -140,12 +140,71 @@
     <input type="checkbox" name="Datenschutz" value="Zugestimmt" required> Ich bin einverstanden, dass meine Daten zum Zweck der Kontaktaufnahme und Kursorganisation...
   </label>
   
-  <button type="submit">Absenden & zu Instagram</button>
+ <button id="submit-button" type="submit">Absenden & zu Instagram</button>
 
 </form>
   </main>
   <footer>
     © TA WingTsun – <a href="https://www.tawt-selbstverteidigung.de" target="_blank">www.tawt-selbstverteidigung.de</a>
   </footer>
+  ...
+  <footer class="footer-class-placeholder"> © TA WingTsun – <a href="https://www.tawt-selbstverteidigung.de" target="_blank">www.tawt-selbstverteidigung.de</a>
+  </footer>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+      // Holt sich das Formular und den Button
+      var form = document.getElementById("probetraining-form");
+      var button = document.getElementById("submit-button");
+      
+      // Holt sich die Instagram-URL aus Ihrem versteckten Feld
+      var redirectUrl = form.querySelector('input[name="_next"]').value;
+
+      // Hängt sich an das "Absenden"-Ereignis
+      form.addEventListener("submit", function(e) {
+        e.preventDefault(); // Verhindert das normale Absenden
+        
+        // Zeigt dem Benutzer Feedback
+        var status = document.createElement("p");
+        button.disabled = true;
+        button.innerText = "Sende..."; // Ändert den Button-Text
+
+        // Bereitet die Daten für den Versand vor
+        var data = new FormData(form);
+        
+        // Sendet die Daten im Hintergrund an Formspree
+        fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: {
+              'Accept': 'application/json'
+          }
+        }).then(response => {
+          // 1. Erfolgreich an Formspree gesendet
+          if (response.ok) {
+            // 2. Zu Instagram weiterleiten
+            window.location.href = redirectUrl;
+          } else {
+            // 3. Fehler beim Senden (z.B. Formspree-Server down)
+            response.json().then(data => {
+              // Fehler anzeigen
+              status.innerHTML = "Fehler: " + data.errors.map(error => error.message).join(", ");
+              button.disabled = false;
+              button.innerText = "Absenden & zu Instagram";
+              form.appendChild(status);
+            })
+          }
+        }).catch(error => {
+          // 4. Fehler beim Senden (z.B. kein Internet)
+          status.innerHTML = "Ein Fehler ist aufgetreten. Bitte prüfen Sie Ihre Internetverbindung.";
+          button.disabled = false;
+          button.innerText = "Absenden & zu Instagram";
+          form.appendChild(status);
+        });
+      });
+    });
+  </script>
+
+</body> </html>
 </body>
 </html>
