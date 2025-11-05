@@ -7,33 +7,58 @@
   <title>TA WingTsun – Probetraining</title>
   <style>
     body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #111;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4; /* Leichter grauer Hintergrund für die Seite */
+      color: #111;
+      position: relative; 
+      z-index: 0;
+    }
+    
+    /* * DER TRICK: Ein "virtuelles" Element, das HINTER dem Inhalt liegt
+     * und NUR das Logo enthält.
+    */
+    body::before {
+      content: "";
+      position: fixed; /* Bleibt beim Scrollen an Ort und Stelle */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      
+      /* Hier stylen wir das Logo */
+      background-image: url('TAWT-Logo.png');
+      background-repeat: no-repeat;
+      background-position: center 80%; /* 80% von oben */
+      background-size: 40%;
+      
+      /* HIER ist die Transparenz sicher, sie betrifft NUR das Logo */
+      opacity: 0.15; 
+      
+      z-index: -1; /* Legt das Logo HINTER den Body-Inhalt */
+    }
 
-  /* --- NEUER HINTERGRUND-CODE --- */
-  /* Wichtig: Der Dateiname hier MUSS exakt mit Ihrer hochgeladenen Datei übereinstimmen */
-  background-image: url('TAWT-Logo.png'); 
-  background-repeat: no-repeat;
-  background-position: center 80%; 
-  background-size: 40%;
-  background-attachment: fixed;
-  opacity: 0.15; 
-  /* --- ENDE --- */
-}
     header img {
       max-width: 100%;
       display: block;
     }
+    
+    /* * Dies ist der Container mit dem Formular.
+     * Er MUSS einen soliden Hintergrund haben, um das Logo zu überdecken.
+    */
     .container {
       max-width: 600px;
       margin: -50px auto 2rem;
       padding: 2rem;
-      background: #fff;
+      background: #fff; /* <-- Das ist die wichtigste Zeile! Solid weiß. */
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      position: relative; /* Stellt sicher, dass es über dem Logo liegt */
+      z-index: 1; 
     }
+    
+    /* --- Ab hier ist alles wie vorher --- */
     h1 {
       text-align: center;
       color: #c90000;
