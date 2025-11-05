@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -101,51 +100,54 @@
   </style>
 </head>
 <body>
+
   <header>
     <img src="headergrafik.png" alt="TA WingTsun Headergrafik" />
   </header>
+  
   <main class="container">
     <h1>Du bist da – Willkommen zum Probetraining!</h1>
     <p>Schön, dass du heute bei uns in der <strong>TA WingTsun Selbstverteidigungsschule</strong> bist!<br>
     Bitte fülle dieses kurze Formular aus, damit wir deinen Besuch bestätigen können.<br>
     Im Anschluss erhältst du den Link zu unserem Instagram-Profil.</p>
-  <form id="probetraining-form" action="https://formspree.io/f/xkgpdrwz" method="POST">
+    
+    <form id="probetraining-form" action="https://formspree.io/f/xkgpdrwz" method="POST">
 
-  <input type="hidden" name="_next" value="https://www.instagram.com/taet_selbstverteidigung/">
+      <input type="hidden" name="_next" value="https://www.instagram.com/taet_selbstverteidigung/">
 
-  <input type="text" name="Name" placeholder="Wie heißt du?" required>
-  
-  <input type="email" name="E-Mail" placeholder="Deine E-Mail-Adresse" required>
-  
-  <input type="tel" name="Telefon" placeholder="Telefonnummer (optional)">
-  
-  <select name="Gruppe" required>
-    <option value="" disabled selected>Welche Gruppe besuchst du heute?</option>
-    <option value="Kindergruppe">Kindergruppe</option>
-    <option value="Jugendgruppe">Jugendgruppe</option>
-    <option value="Erwachsenengruppe">Erwachsenengruppe</option>
-  </select>
-  
-  <select name="Quelle" required>
-    <option value="" disabled selected>Wie hast du von uns erfahren?</option>
-    <option value="Instagram">Instagram</option>
-    <option value="TikTok">TikTok</option>
-    <option value="Freunde/Bekannte">Freunde/Bekannte</option>
-    <option value="Flyer/Plakate">Flyer/Plakate</option>
-    <option value="Standort">Standort</option>
-    <option value="Sonstiges">Sonstiges</option>
-  </select>
-  
-  <label>
-    <input type="checkbox" name="Datenschutz" value="Zugestimmt" required> Ich bin einverstanden, dass meine Daten zum Zweck der Kontaktaufnahme und Kursorganisation...
-  </label>
-  
- <button id="submit-button" type="submit">Absenden & zu Instagram</button>
+      <input type="text" name="Name" placeholder="Wie heißt du?" required>
+      
+      <input type="email" name="E-Mail" placeholder="Deine E-Mail-Adresse" required>
+      
+      <input type="tel" name="Telefon" placeholder="Telefonnummer (optional)">
+      
+      <select name="Gruppe" required>
+        <option value="" disabled selected>Welche Gruppe besuchst du heute?</option>
+        <option value="Kindergruppe">Kindergruppe</option>
+        <option value="Jugendgruppe">Jugendgruppe</option>
+        <option value="Erwachsenengruppe">Erwachsenengruppe</option>
+      </select>
+      
+      <select name="Quelle" required>
+        <option value="" disabled selected>Wie hast du von uns erfahren?</option>
+        <option value="Instagram">Instagram</option>
+        <option value="TikTok">TikTok</option>
+        <option value="Freunde/Bekannte">Freunde/Bekannte</option>
+        <option value="Flyer/Plakate">Flyer/Plakate</option>
+        <option value="Standort">Standort</option>
+        <option value="Sonstiges">Sonstiges</option>
+      </select>
+      
+      <label>
+        <input type="checkbox" name="Datenschutz" value="Zugestimmt" required> Ich bin einverstanden, dass meine Daten zum Zweck der Kontaktaufnahme und Kursorganisation...
+      </label>
+      
+      <button id="submit-button" type="submit">Absenden & zu Instagram</button>
 
-</form>
+    </form>
   </main>
+  
   <footer>
-   <footer>
     © TA WingTsun – <a href="https://www.tawt-selbstverteidigung.de" target="_blank">www.tawt-selbstverteidigung.de</a>
   </footer>
   
